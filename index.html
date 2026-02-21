@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+  TripAdvisor Clone - Landing Page
+  A responsive clone built with HTML & CSS to practice layout, BEM methodology, and mobile-first design.
+  Structure: Semantic HTML5 (header, main, section, article) + BEM class names for maintainable styling.
+-->
+
+<head>
+    <!-- Basic Setup -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary SEO -->
+    <!-- REPLACE: title - Update with your project name -->
+    <title>TripAdvisor Clone | Hotels, Things to Do, Restaurants & Travel Reviews</title>
+    <!-- REPLACE: description - Write a unique meta description for your deployment -->
+    <meta name="description"
+        content="Find hotels, things to do, restaurants, and travel reviews. Plan your perfect trip with recommendations from millions of travelers.">
+    <!-- REPLACE: author - Add your name -->
+    <meta name="author" content="Mohamed Asmaan">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <!-- REPLACE: href - Use your live URL when deployed (e.g. https://yourusername.github.io/tripadvisor-clone/) -->
+    <link rel="canonical" href="https://yourusername.github.io/tripadvisor-clone/">
+
+    <!-- Favicon (TripAdvisor brand assets) -->
+    <link rel="icon" type="image/x-icon" href="https://static.tacdn.com/assets/s/6b5096f1.ico">
+    <link rel="icon" type="image/svg+xml" href="https://static.tacdn.com/assets/s/3ba4aeda.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://static.tacdn.com/assets/s/12951248.png">
+    <link rel="mask-icon" sizes="any" color="#00210c" href="https://static.tacdn.com/assets/s/4f134e39.svg">
+
+    <!-- Theme Color (TripAdvisor green #00eb5b) -->
+    <meta name="theme-color" content="#00eb5b">
+
+    <!-- Open Graph (Facebook, LinkedIn) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TripAdvisor Clone | Travel Reviews & Recommendations">
+    <meta property="og:description" content="Find hotels, things to do, restaurants. Plan your trip with travel reviews from millions.">
+    <meta property="og:image" content="https://static.tacdn.com/img2/brand_refresh_2025/vertical_lockups/vertical_lockup_primary.png">
+    <meta property="og:image:width" content="550">
+    <meta property="og:image:height" content="370">
+    <meta property="og:url" content="https://yourusername.github.io/tripadvisor-clone/">
+    <meta property="og:site_name" content="TripAdvisor Clone">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TripAdvisor Clone | Travel Reviews & Recommendations">
+    <meta name="twitter:description" content="Find hotels, things to do, restaurants. Plan your trip with travel reviews.">
+    <meta name="twitter:image" content="https://static.tacdn.com/img2/brand_refresh_2025/vertical_lockups/vertical_lockup_primary.png">
+
+    <!-- Fonts: Trip Sans loaded via @font-face in style.css -->
+    <!-- Optional: Add Google Fonts or other CDN here if needed -->
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <!-- Nav: flexbox + CSS order for mobile-first layout -->
+    <header class="header header--sticky">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="nav__brand">
+                    <img src="./assets/images/wordmark.svg" alt="TripAdvisor logo">
+                </a>
+
+                <div class="nav__menu">
+                    <ul class="nav__menu-list">
+                        <li><button type="button" class="nav__menu-btn">Discover</button></li>
+                        <li><button type="button" class="nav__menu-btn">Review</button></li>
+                        <li><a href="" class="nav__menu-link">More</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__actions">
+                    <button class="nav__country-btn" type="button" aria-label="Select Country">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px" class="nav__icon" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M9.31 9.82h4.178c-.069-1.591-.356-2.993-.766-4.017-.237-.593-.501-1.023-.756-1.293-.211-.223-.38-.3-.5-.32h-.133c-.12.02-.289.097-.5.32-.255.27-.519.7-.756 1.293-.41 1.024-.697 2.426-.767 4.017m-.374-5.14q-.135.272-.252.566C8.194 6.472 7.88 8.07 7.81 9.82H5.055a6.39 6.39 0 0 1 3.88-5.14m2.301-1.989a7.883 7.883 0 0 0-7.726 7.88 7.88 7.88 0 0 0 7.884 7.885c.584 0 .871-.014 1.11-.074.124-.031.172-.049.213-.064.058-.02.099-.036.312-.073l-.26-1.477a4 4 0 0 0-.628.159c-.031.007-.132.029-.743.029-.121 0-.313-.06-.566-.327-.255-.27-.519-.699-.756-1.292-.41-1.025-.697-2.426-.767-4.017h4.203a4.7 4.7 0 0 1-.113.843 6 6 0 0 1-.112.413l-.012.04-.004.016c-.034.114-.089.298-.1.478l1.498.088v.006s.007-.035.044-.161l.012-.04c.038-.126.09-.298.136-.505.072-.313.134-.698.152-1.178h2.734a4.2 4.2 0 0 1-.195.949c-.055.16-.11.28-.166.403l-.004.01-.01.02c-.046.101-.132.288-.161.486l1.484.219-.005.026s.012-.032.057-.13l.008-.018c.056-.123.137-.3.216-.529.168-.49.31-1.168.31-2.186a7.88 7.88 0 0 0-7.72-7.879 2 2 0 0 0-.325 0m2.626 1.99q.134.271.252.565c.49 1.226.805 2.824.875 4.574h2.75a6.38 6.38 0 0 0-3.877-5.14M8.94 16.466a8 8 0 0 1-.256-.573c-.49-1.227-.805-2.824-.875-4.574H5.055a6.39 6.39 0 0 0 3.885 5.147">
+                            </path>
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M20.489 12.343h-8.75v6.648h5.255l3.495 2.325zm-1.5 1.5v4.674l-1.542-1.026H13.24v-3.648z">
+                            </path>
+                        </svg>
+
+                        <span aria-hidden="true" class="nav__divider"></span>
+                        INR
+                    </button>
+
+                    <div class="nav__signin">
+                        <button type="button" class="btn--primary nav__signin-btn">
+                            Sign in
+                        </button>
+
+                        <a href="" class="nav__signin-link">
+                            <svg viewBox="0 0 24 24" width="24px" height="24px" class="nav__icon" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 3.75a8.25 8.25 0 0 0-5.682 14.231 6.02 6.02 0 0 1 11.364 0A8.25 8.25 0 0 0 12 3.75m4.41 15.224a4.52 4.52 0 0 0-8.82 0A8.2 8.2 0 0 0 12 20.25a8.2 8.2 0 0 0 4.41-1.276M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12m9.77-4.24a1.75 1.75 0 1 0 0 3.5 1.75 1.75 0 0 0 0-3.5M8.77 9.51a3.25 3.25 0 1 1 6.5 0 3.25 3.25 0 0 1-6.5 0">
+                                </path>
+                            </svg>
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <button type="button" class="nav__burger" aria-label="Open menu">
+                    <svg viewBox="0 0 24 24" width="24px" height="24px" class="nav__icon" aria-hidden="true">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M21 7.75H3v-1.5h18zm0 5H3v-1.5h18zm0 5H3v-1.5h18z"></path>
+                    </svg>
+                </button>
+
+
+
+            </nav>
+        </div>
+
+
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Categories: horizontal scroll tabs. Each link targets a form by id (#search-all, #hotels, etc). -->
+            <section class="categories">
+                <h1 class="categories__heading">Where to?</h1>
+
+                <ul class="categories__list">
+                    <li class="categories__item">
+                        <a href="#search-all" class="categories__link"><svg viewBox="0 0 24 24" width="24px"
+                                height="24px" class="categories__icon" aria-hidden="true">
+
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.889 3.542a.25.25 0 0 0-.278 0l-8 5.333a.25.25 0 0 0-.111.208v10.465c0 .138.112.25.25.25h16a.25.25 0 0 0 .25-.25V9.083a.25.25 0 0 0-.111-.208zm-1.11-1.248a1.75 1.75 0 0 1 1.942 0l8 5.333c.487.325.779.871.779 1.456v10.465a1.75 1.75 0 0 1-1.75 1.75h-16A1.75 1.75 0 0 1 2 19.548V9.083c0-.585.292-1.131.78-1.456z">
+                                </path>
+                            </svg>
+                            <p class="categories__link-text">Search All</p>
+                        </a>
+                    </li>
+                    <li class="categories__item">
+                        <a href="#hotels" class="categories__link"><svg viewBox="0 0 24 24" width="24px" height="24px"
+                                class="categories__icon" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M22 12.5V20h-4.5v-3h-11v3H2V6.25a2.25 2.25 0 0 1 4.5 0v6.25zM5 6.25a.75.75 0 0 0-1.5 0V18.5H5v-3h14v3h1.5V14H5z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 10.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11 7h5.6a5.4 5.4 0 0 1 5.4 5.4V14H11zm9.241 4A3.9 3.9 0 0 0 16.6 8.5h-4.1v4h8v-.1a3.9 3.9 0 0 0-.259-1.4">
+                                </path>
+                            </svg>
+                            <p class="categories__link-text">Hotels</p>
+                        </a>
+                    </li>
+                    <li class="categories__item">
+                        <a href="#things" class="categories__link"><svg viewBox="0 0 24 24" width="24px" height="24px"
+                                class="categories__icon" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M7.56 7.5H3.75a.25.25 0 0 0-.25.25v10c0 .138.112.25.25.25h16.5a.25.25 0 0 0 .25-.25v-10a.25.25 0 0 0-.25-.25h-3.81l-2-2H9.56zM8.94 4h6.12l2 2h3.19c.966 0 1.75.784 1.75 1.75v10a1.75 1.75 0 0 1-1.75 1.75H3.75A1.75 1.75 0 0 1 2 17.75v-10C2 6.784 2.784 6 3.75 6h3.19z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 9.25a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5M7.75 12a4.25 4.25 0 1 1 8.5 0 4.25 4.25 0 0 1-8.5 0">
+                                </path>
+                            </svg>
+                            <p class="categories__link-text">Things to Do</p>
+                        </a>
+                    </li>
+                    <li class="categories__item">
+                        <a href="#restaurants" class="categories__link"><svg viewBox="0 0 24 24" width="24px"
+                                height="24px" class="categories__icon" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.051 6.549v.003l1.134 1.14 3.241-3.25.003-.002 1.134 1.136-3.243 3.252 1.134 1.14a1 1 0 0 0 .09-.008c.293-.05.573-.324.72-.474l.005-.006 2.596-2.603L22 8.016l-2.597 2.604a3.73 3.73 0 0 1-1.982 1.015 4.3 4.3 0 0 1-3.162-.657l-.023-.016-.026-.018-1.366 1.407 8.509 8.512L20.219 22l-.002-.002-6.654-6.663-2.597 2.76-7.3-7.315C1.967 8.948 1.531 6.274 2.524 4.198c.241-.504.566-.973.978-1.386l8.154 8.416 1.418-1.423-.039-.045c-.858-1.002-1.048-2.368-.62-3.595a4.15 4.15 0 0 1 .983-1.561L16 2l1.135 1.138-2.598 2.602-.047.045c-.16.151-.394.374-.433.678zM3.809 5.523c-.362 1.319-.037 2.905 1.06 4.103L10.93 15.7l1.408-1.496zM2.205 20.697 3.34 21.84l4.543-4.552-1.135-1.143z">
+                                </path>
+                            </svg>
+                            <p class="categories__link-text">Restaurants</p>
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </section>
+            <!-- Search: 4 forms stacked, hidden by default. :target selector shows the one linked from categories. -->
+            <section class="search">
+
+
+                <form class="search__form" action="" id="search-all">
+                    <div class="search__input">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px" class="search__icon" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.12 4.14a5.99 5.99 0 1 0 0 11.98 5.99 5.99 0 0 0 0-11.98m-7.49 5.99a7.49 7.49 0 1 1 13.299 4.728L21.37 20.3l-1.06 1.061-5.44-5.44A7.49 7.49 0 0 1 2.63 10.13">
+                            </path>
+                        </svg>
+
+                        <input class="search__field" placeholder="Places to go, things to do, hotels..." title="Search"
+                            role="searchbox" aria-label="Search" type="search">
+                    </div>
+                    <hr class="search__divider">
+                    <button class="search__submit" type="submit">Search</button>
+                </form>
+                <form class="search__form" action="" id="hotels">
+                    <div class="search__input">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px" class="search__icon" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.12 4.14a5.99 5.99 0 1 0 0 11.98 5.99 5.99 0 0 0 0-11.98m-7.49 5.99a7.49 7.49 0 1 1 13.299 4.728L21.37 20.3l-1.06 1.061-5.44-5.44A7.49 7.49 0 0 1 2.63 10.13">
+                            </path>
+                        </svg>
+
+                        <input class="search__field" placeholder="Hotel name or destination" title="Search"
+                            role="searchbox" aria-label="Search" type="search">
+                    </div>
+                    <hr class="search__divider">
+                    <button class="search__submit" type="submit">Search</button>
+                </form>
+                <form class="search__form" action="" id="things">
+                    <div class="search__input">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px" class="search__icon" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.12 4.14a5.99 5.99 0 1 0 0 11.98 5.99 5.99 0 0 0 0-11.98m-7.49 5.99a7.49 7.49 0 1 1 13.299 4.728L21.37 20.3l-1.06 1.061-5.44-5.44A7.49 7.49 0 0 1 2.63 10.13">
+                            </path>
+                        </svg>
+
+                        <input class="search__field" placeholder="Attraction, activity or destination" title="Search"
+                            role="searchbox" aria-label="Search" type="search">
+                    </div>
+                    <hr class="search__divider">
+                    <button class="search__submit" type="submit">Search</button>
+                </form>
+                <form class="search__form" action="" id="restaurants">
+                    <div class="search__input">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px" class="search__icon" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.12 4.14a5.99 5.99 0 1 0 0 11.98 5.99 5.99 0 0 0 0-11.98m-7.49 5.99a7.49 7.49 0 1 1 13.299 4.728L21.37 20.3l-1.06 1.061-5.44-5.44A7.49 7.49 0 0 1 2.63 10.13">
+                            </path>
+                        </svg>
+
+                        <input class="search__field" placeholder="Restaurant or destination" title="Search"
+                            role="searchbox" aria-label="Search" type="search">
+                    </div>
+                    <hr class="search__divider">
+                    <button class="search__submit" type="submit">Search</button>
+                </form>
+                <form class="search__form-default" action="" id="search-all-default">
+                    <div class="search__input">
+                        <svg viewBox="0 0 24 24" width="24px" height="24px" class="search__icon" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M10.12 4.14a5.99 5.99 0 1 0 0 11.98 5.99 5.99 0 0 0 0-11.98m-7.49 5.99a7.49 7.49 0 1 1 13.299 4.728L21.37 20.3l-1.06 1.061-5.44-5.44A7.49 7.49 0 0 1 2.63 10.13">
+                            </path>
+                        </svg>
+
+                        <input class="search__field" placeholder="Places to go, things to do, hotels..." title="Search"
+                            role="searchbox" aria-label="Search" type="search">
+                    </div>
+                    <hr class="search__divider">
+                    <button class="search__submit" type="submit">Search</button>
+                </form>
+            </section>
+            <!-- Book CTA: image carousel (4 slides, CSS animation) + promo text. Slides use BEM modifier --1 through --4. -->
+            <section class="book">
+                <article class="book__card">
+                    <div class="book__gallery">
+                        <div class="book__slide book__slide--1">
+                            <picture>
+                                <img src="./assets/images/caption.jpg" alt="Travel experience shared by @teapottwins">
+                            </picture>
+                            <button class="book__slide-caption" type="button">@teapottwins</button>
+                        </div>
+                        <div class="book__slide book__slide--2">
+                            <picture>
+                                <img src="./assets/images/caption-2.jpg" alt="Travel experience shared by John C">
+                            </picture>
+                            <button class="book__slide-caption" type="button">@John C</button>
+                        </div>
+                        <div class="book__slide book__slide--3">
+                            <picture>
+                                <img src="./assets/images/caption-3.jpg" alt="Travel experience shared by Eddie J">
+                            </picture>
+                            <button class="book__slide-caption" type="button">@Eddie J</button>
+                        </div>
+                        <div class="book__slide book__slide--4">
+                            <picture>
+                                <img src="./assets/images/caption-4.jpg" alt="Travel experience shared by Adrian S">
+                            </picture>
+                            <button class="book__slide-caption" type="button">@adrian S</button>
+                        </div>
+                    </div>
+                    <div class="black-div"></div>
+
+                    <hr class="book__divider">
+
+                    <div class="book__content">
+                        <h2 class="book__title">Find things to do for everything you're into</h2>
+                        <p class="book__subtitle">Browse 400,000+ experiences and book with us.</p>
+                        <button class="btn--primary book__button" type="button">Book now</button>
+                    </div>
+
+                    <svg class="book__controls" viewBox="0 0 24 24" width="20px" height="20px" aria-hidden="true">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M12 20.24a8.24 8.24 0 1 0 0-16.48 8.24 8.24 0 0 0 0 16.48m0 1.5c5.379 0 9.74-4.361 9.74-9.74S17.378 2.26 12 2.26 2.26 6.622 2.26 12s4.361 9.74 9.74 9.74">
+                        </path>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9 17V7h1.5v10zm4.5 0V7H15v10z"></path>
+                    </svg>
+
+                </article>
+            </section>
+            <!-- Explore: repeating sections of horizontal card grids. BEM: block=explore, elements=section, list, card, image. Modifiers: --detailed (tall cards), --tall (image variant). -->
+            <div class="explore">
+                <section class="explore__section">
+
+                    <div class="explore__header">
+                        <h2 class="explore__title">Find things to do by interest</h2>
+                        <p class="explore__subtitle">Whatever you're into, we’ve got it</p>
+                    </div>
+
+                    <ul class="explore__list explore__list--scroll">
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/img-1.jpg"
+                                    alt="Outdoors activities and nature exploration">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Outdoors</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/img-2.jpg"
+                                    alt="Food and culinary experiences">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Food</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/img-3.jpg"
+                                    alt="Culture and heritage experiences">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Culture</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/img-4.jpg"
+                                    alt="Water activities and beach experiences">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Water</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                    </ul>
+
+                </section>
+
+                <section class="explore__section">
+
+                    <div class="explore__header">
+                        <h2 class="explore__title">Recently viewed</h2>
+                    </div>
+
+                    <ul class="explore__list explore__list--scroll">
+                        <!-- 1 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/recent-1.jpg"
+                                    alt="Maui whale watching cruise from Ka'anapali Beach">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        Maui: Whale Watching Cruise with Open Bar from Ka'anapali Beach
+                                    </h3>
+                                    <div>
+                                        <span>4.7</span>
+                                        <!-- KEEPING YOUR SAME SVG -->
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1da_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1da_">4.7 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.389 0 0 5.389 0 12c0 6.62 5.389 12 12 12 6.62 0 12-5.379 12-12S18.621 0 12 0zm0 2a9.984 9.984 0 0110 10 9.976 9.976 0 01-10 10z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(341)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹9,655 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 2 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/recent-2.jpg"
+                                    alt="Private Pykara Lake Tour in Ooty with Car">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Private Pykara Lake Tour in Ooty with Car</h3>
+                                    <div>
+                                        <span>5.0</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_9t_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_9t_">5 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->1<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹5,000 per group</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <!-- 3 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/recent-3.jpg" alt="Sunset Grill restaurant">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Sunset Grill</h3>
+                                    <div>
+                                        <span>4.8</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_9t_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_9t_">5 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->677<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">Moroccan, Bar, Seafood</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <!-- 4 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/recent-4.jpg" alt="Zaitoon restaurant">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Zaitoon</h3>
+                                    <div>
+                                        <span>4.1</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_9t_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_9t_">5 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->60<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">Indian, Middle Eastern, Asian</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+
+                    </ul>
+
+                </section>
+
+                <section class="explore__section">
+
+                    <div class="explore__header">
+                        <h2 class="explore__title">Eyes peeled. Mind blown.</h2>
+                        <p class="explore__subtitle">Head out on a whale-watching tour</p>
+                    </div>
+
+                    <ul class="explore__list">
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-1.jpg"
+                                    alt="Private Kotagiri (Ooty) Birding Curation">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Private Kotagiri (Ooty) Birding Curation Only</h3>
+                                    <div>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-R_1e53aiielf9avlq_"
+                                            data-automation="bubbleRatingImage">
+                                            <title id="_lithium-R_1e53aiielf9avlq_">No reviews yet</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12zm0 2a9.983 9.983 0 019.995 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12zm0 2a9.983 9.983 0 019.995 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12zm0 2a9.983 9.983 0 019.995 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12zm0 2a9.983 9.983 0 019.995 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12zm0 2a9.983 9.983 0 019.995 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->0<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹3,000 per adult</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-2.jpg"
+                                    alt="Day Trip to Coonoor guided sightseeing tour from Ooty">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Day Trip to Coonoor (Guided Sightseeing Tour by Car
+                                        from
+                                        Ooty)</h3>
+                                    <div>
+                                        <span>4.8</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-R_1e55aiielf9avlq_"
+                                            data-automation="bubbleRatingImage">
+                                            <title id="_lithium-R_1e55aiielf9avlq_">4.8 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->4<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹10,819 per group</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-3.jpg"
+                                    alt="Private Pykara Lake Tour in Ooty with Car">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Private Pykara Lake Tour in Ooty with Car</h3>
+                                    <div>
+                                        <span>5.0</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_9t_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_9t_">5 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->1<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹5,000 per group</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-4.jpg"
+                                    alt="Ooty day trip to Bellikkal Estate">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Ooty - Day Trip to Bellikkal Estate</h3>
+                                    <div>
+                                        <span>4.5</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_a6_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_a6_">4.5 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.389 0 0 5.389 0 12c0 6.62 5.389 12 12 12 6.62 0 12-5.379 12-12S18.621 0 12 0zm0 2a9.984 9.984 0 0110 10 9.976 9.976 0 01-10 10z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->2<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹2,489 per adult</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-5.jpg"
+                                    alt="Adiyogi 3D Light Show in Coimbatore">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Adiyogi 3D Light Show – A Spectacle of Light, Sound
+                                        -
+                                        Coimbatore</h3>
+                                    <div>
+                                        <span>4.6</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-R_1e55aiielf9avlq_"
+                                            data-automation="bubbleRatingImage">
+                                            <title id="_lithium-R_1e55aiielf9avlq_">4.8 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->14<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹4,946 per adult</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-6.jpg"
+                                    alt="Hill Station Tour from Coimbatore to Valparai">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Hill Station Tour from Coimbatore to Valparai - 2
+                                        days
+                                    </h3>
+                                    <div>
+                                        <span>5.0</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_ao_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_ao_">5 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(<!-- -->2<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹15,717 per adult</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-7.jpg" alt="Coimbatore to Ooty day trip">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Coimbatore to Ooty Day Trip - Explore A Perfect Hill
+                                        Station</h3>
+                                    <div>
+                                        <span>4.0</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-R_1e55aiielf9avlq_"
+                                            data-automation="bubbleRatingImage">
+                                            <title id="_lithium-R_1e55aiielf9avlq_">4.8 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->1<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹13,409 per adult</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-8.jpg" alt="Isha Yoga Centre in Coimbatore">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Isha Yoga Centre - Coimbatore</h3>
+                                    <div>
+                                        <span>4.8</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_ba_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_ba_">4.2 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12zm0 2a9.983 9.983 0 019.995 10 10 10 0 01-10 10A10 10 0 012 12 10 10 0 0112 2z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->29<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹6,532 per adult</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/exp-9.jpg"
+                                    alt="Palani Murugan Temple from Coimbatore">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">Explore Palani Murugan Temple From Coimbatore</h3>
+                                    <div>
+                                        <span>5.0</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-R_1e55aiielf9avlq_"
+                                            data-automation="bubbleRatingImage">
+                                            <title id="_lithium-R_1e55aiielf9avlq_">4.8 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+
+                                        <span>(<!-- -->1<!-- -->)</span>
+
+
+                                    </div>
+
+                                    <p class="explore__card-description">from ₹18,009 per adult</p>
+                                </div>
+
+                            </article>
+                        </li>
+
+
+                    </ul>
+
+                </section>
+
+                <section class="explore__advicer">
+                    <div class="explore__foundation">
+                        <img src="./assets/images/logo-icon.svg" alt="TripAdvisor Icon">
+                        <p>Tripadvisor Foundation</p>
+                    </div>
+
+                    <article class="explore__foundation-context">
+                        <img class="explore__foundation-image desktop-height" src="./assets/images/trust-img.jpg" alt="">
+
+                        <div class="explore__foundation-content">
+
+                            <div class="explore__foundation explore__foundation--desktop">
+                                <img src="./assets/images/logo-icon.svg" alt="TripAdvisor Icon">
+                                <p>Tripadvisor Foundation</p>
+                            </div>
+                            <h2 class="explore__foundation-title">
+                                Show some love to small businesses
+                            </h2>
+                            <p class="explore__foundation-subtext">
+                                Donate to Kiva.org today to provide loans to local entrepreneurs and the Tripadvisor
+                                Foundation will match it, up to $150,000 USD collectively. Terms apply.
+                            </p>
+                            <button class="btn--primary explore__foundation-btn">Donate now</button>
+                        </div>
+                    </article>
+                </section>
+
+                <section class="explore__section">
+
+                    <div class="explore__header">
+                        <h2 class="explore__title">Explore experiences near Kotagiri</h2>
+                        <p class="explore__subtitle">Can’t-miss picks near you</p>
+                    </div>
+
+                    <ul class="explore__list">
+                        <!-- 1 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-1.jpg"
+                                    alt="Maui whale watching cruise from Ka'anapali Beach">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        Maui: Whale Watching Cruise with Open Bar from Ka'anapali Beach
+                                    </h3>
+                                    <div>
+                                        <span>4.7</span>
+                                        <!-- KEEPING YOUR SAME SVG -->
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1da_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1da_">4.7 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.389 0 0 5.389 0 12c0 6.62 5.389 12 12 12 6.62 0 12-5.379 12-12S18.621 0 12 0zm0 2a9.984 9.984 0 0110 10 9.976 9.976 0 01-10 10z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(341)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹9,655 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 2 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-2.jpg"
+                                    alt="Whale watch tour in Cabo San Lucas">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        SMALL GROUP Whale Watch | Cabo San Lucas | Biologist | FREE Pics
+                                    </h3>
+                                    <div>
+                                        <span>4.9</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1dj_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1dj_">4.9 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(827)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹10,171 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 3 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-3.jpg"
+                                    alt="Whale watching eco-adventure from Costa Adeje">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        Whale Watching Eco-Adventure from Costa Adeje
+                                    </h3>
+                                    <div>
+                                        <span>5.0</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1ds_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1ds_">5 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(1,826)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹6,594 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 4 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-4.jpg"
+                                    alt="Waikiki Oahu whale watching tour">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        Waikiki, Oahu 2-Hour Whale Watching: Guaranteed Sightings
+                                    </h3>
+                                    <div>
+                                        <span>4.7</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1e5_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1e5_">4.7 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.389 0 0 5.389 0 12c0 6.62 5.389 12 12 12 6.62 0 12-5.379 12-12S18.621 0 12 0zm0 2a9.984 9.984 0 0110 10 9.976 9.976 0 01-10 10z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(547)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹4,228 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 5 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-6.jpg"
+                                    alt="Juneau wildlife whale watching and Mendenhall Glacier">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        Juneau Wildlife Whale Watching & Mendenhall Glacier
+                                    </h3>
+                                    <div>
+                                        <span>4.9</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1ee_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1ee_">4.9 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(5,390)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹23,234 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 6 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-7.jpg"
+                                    alt="3-hour whale watching tour from Monterey">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        3-Hour Whale Watching Tour from Monterey
+                                    </h3>
+                                    <div>
+                                        <span>4.8</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1en_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1en_">4.8 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(216)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹6,298 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 7 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-8.jpg"
+                                    alt="Wake Up With the Whales cruise on Seasmoke">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        Wake Up With the Whales Cruise on Seasmoke
+                                    </h3>
+                                    <div>
+                                        <span>4.9</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1f0_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1f0_">4.9 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(58)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹11,664 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 8 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-9.jpg"
+                                    alt="Whale watching 2-hour small group raft tour from Lahaina Maui">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        Whale Watching Maui: 2-Hour Small Group Raft Tour from Lahaina
+                                    </h3>
+                                    <div>
+                                        <span>4.9</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1f0_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1f0_">4.9 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(453)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹7,521 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 9 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/oce-10.jpg"
+                                    alt="Whale and dolphin watching cruise from Cape May">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        Whale and Dolphin Watching Cruise from Cape May
+                                    </h3>
+                                    <div>
+                                        <span>4.3</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1f0_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1f0_">4.9 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(525)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹4,199 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                        <!-- 10 -->
+                        <li>
+                            <article class="explore__card explore__card--detailed">
+                                <img class="explore__image explore__image--tall"
+                                    src="./assets/images/explore-images/img-1.jpg"
+                                    alt="San Diego Whale Watching Cruise">
+                                <div class="explore__card-body">
+                                    <h3 class="explore__card-title">
+                                        San Diego Whale Watching Cruise
+                                    </h3>
+                                    <div>
+                                        <span>4.8</span>
+                                        <svg class="explore__rating-icon" viewBox="0 0 128 24" width="68" height="12"
+                                            aria-labelledby="_lithium-r_1f0_" data-automation="bubbleRatingImage">
+                                            <title id="_lithium-r_1f0_">4.9 of 5 bubbles</title>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform=""></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(26 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(52 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(78 0)"></path>
+                                            <path
+                                                d="M 12 0C5.388 0 0 5.388 0 12s5.388 12 12 12 12-5.38 12-12c0-6.612-5.38-12-12-12z"
+                                                transform="translate(104 0)"></path>
+                                        </svg>
+                                        <span>(1,178)</span>
+                                    </div>
+                                    <p class="explore__card-description">from ₹7,931 per adult</p>
+                                </div>
+                            </article>
+                        </li>
+
+                    </ul>
+
+                </section>
+
+                <section class="explore__section">
+
+                    <div class="explore__header">
+                        <h2 class="explore__title">Iconic places you need to see</h2>
+                    </div>
+
+                    <ul class="explore__list">
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-1.jpg"
+                                    alt="Rome, Italy">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Rome, Italy</h3>
+                                </div>
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-2.jpg"
+                                    alt="Paris, France">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Paris, France</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-3.jpg"
+                                    alt="Las Vegas, NV">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Las Vegas, NV</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-4.jpg"
+                                    alt="Florence, Italy">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Florence, Italy</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-5.jpg"
+                                    alt="New York City, NY">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">New York City, NY</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-6.jpg"
+                                    alt="Barcelona, Spain">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Barcelona, Spain</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-7.jpg"
+                                    alt="Oahu, HI">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Oahu, HI</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-8.jpg"
+                                    alt="Amsterdam, The Netherlands">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Amsterdam, The Netherlands</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                        <li>
+                            <article class="explore__card">
+                                <img class="explore__image" src="./assets/images/explore-images/iconic-10.jpg"
+                                    alt="Dubai, United Arab Emirates">
+                                <div class="explore__overlay">
+                                    <h3 class="explore__overlay-title">Dubai, United Arab Emirates</h3>
+                                </div>
+
+                            </article>
+                        </li>
+                    </ul>
+
+                </section>
+
+                <section class="explore__advicer">
+                    <div class="explore__foundation">
+
+                        <img src="./assets/images/logo-icon.svg" alt="TripAdvisor Icon">
+                        <p>Tripadvisor Foundation</p>
+                    </div>
+
+                    <article class="explore__foundation-context">
+
+                        <img class="explore__foundation-image" src="./assets/images/trust-img2.jpg" alt="">
+
+                        <div class="explore__foundation-content">
+                            <div class="explore__foundation explore__foundation--desktop">
+                                <img src="./assets/images/logo-icon.svg" alt="TripAdvisor Icon">
+                                <p>Tripadvisor Foundation</p>
+                            </div>
+                            <h2 class="explore__foundation-title">
+                                Watch The Wanderer
+                            </h2>
+                            <p class="explore__foundation-subtext">
+                                Tripadvisor’s award-winning travel series, now streaming on Amazon Prime Video
+                            </p>
+                            <button class="btn--primary explore__foundation-btn">Learn more</button>
+                        </div>
+                    </article>
+                </section>
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <section class="explore__advicer explore__advicer--dark">
+            <div class="container">
+                <article class="explore__awards">
+                    <img class="explore__awards-logo explore__awards-logo--mobile" src="./assets/images/foundation-mark.svg" alt="">
+
+                    <div class="explore__awards-content">
+                        <img class="explore__awards-logo" src="./assets/images/foundation-mark.svg" alt="">
+
+                        <h2 class="explore__awards-title explore__awards-title--light">
+                            Travellers' Choice Awards Best of the Best
+                        </h2>
+                        <p class="explore__awards-subtext explore__awards-subtext--light">
+                            Among our top 1% of places, stays, eats, and experiences—decided by you.
+                        </p>
+                        <button class="btn--primary explore__awards-btn">See the winners</button>
+                    </div>
+
+                    <img class="explore__awards-image" src="https://static.tacdn.com/img2/brand/feed/tc_cards_2026.png"
+                        alt="">
+                </article>
+            </div>
+
+
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <!-- Footer: mobile accordions (checkbox hack), desktop 4-column layout. No JS -->
+    <footer class="footer">
+        <div class="footer__inner container ">
+            <!-- Nav columns: accordion on mobile, side-by-side on desktop -->
+            <nav class="footer__nav">
+                <div class="footer__column">
+                    <input type="checkbox" id="footer-about" class="footer__accordion-input">
+                    <label for="footer-about" class="footer__accordion-trigger">About Tripadvisor</label>
+                    <div class="footer__accordion-content">
+                        <ul class="footer__links">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Press</a></li>
+                            <li><a href="#">Resources and Policies</a></li>
+                            <li><a href="#">Careers</a></li>
+                            <li><a href="#">Trust &amp; Safety</a></li>
+                            <li><a href="#">Contact us</a></li>
+                            <li><a href="#">Tripadvisor Technology</a></li>
+                            <li><a href="#">Blog</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__column">
+                    <input type="checkbox" id="footer-explore" class="footer__accordion-input">
+                    <label for="footer-explore" class="footer__accordion-trigger">Explore</label>
+                    <div class="footer__accordion-content">
+                        <ul class="footer__links">
+                            <li><a href="#">Write a review</a></li>
+                            <li><a href="#">Add a Place</a></li>
+                            <li><a href="#">Join</a></li>
+                            <li><a href="#">Travellers' Choice</a></li>
+                            <li><a href="#">Help Centre</a></li>
+                            <li><a href="#">Travel Stories</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__column">
+                    <input type="checkbox" id="footer-business" class="footer__accordion-input">
+                    <label for="footer-business" class="footer__accordion-trigger">Do Business With Us</label>
+                    <div class="footer__accordion-content">
+                        <ul class="footer__links">
+                            <li><a href="#">Owners &amp; DMO/CVB</a></li>
+                            <li><a href="#">Business Advantage</a></li>
+                            <li><a href="#">Sponsored Placements</a></li>
+                            <li><a href="#">Advertise with Us</a></li>
+                            <li><a href="#">Access our Content API</a></li>
+                        </ul>
+                        <p class="footer__subheading">Get The App</p>
+                        <ul class="footer__links">
+                            <li><a href="#">iPhone App</a></li>
+                            <li><a href="#">Android App</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer__column">
+                    <input type="checkbox" id="footer-sites" class="footer__accordion-input">
+                    <label for="footer-sites" class="footer__accordion-trigger">Tripadvisor Sites</label>
+                    <div class="footer__accordion-content">
+                        <p class="footer__sites-text">Book tours and attraction tickets on <a href="#">Viator</a></p>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Bottom section: stacks on mobile, two-column on desktop -->
+            <div class="footer__bottom">
+                <!-- Currency & country selectors -->
+                <div class="footer__selectors">
+                    <select class="footer__select" aria-label="Currency">
+                        <option value="inr">₹ INR</option>
+                    </select>
+                    <select class="footer__select" aria-label="Country">
+                        <option value="india">India</option>
+                    </select>
+                </div>
+
+                <!-- Social media icons -->
+                <div class="footer__social">
+                    <a href="#" class="footer__social-link" aria-label="Facebook">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="X">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="Pinterest">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M12 2C6.48 2 2 6.48 2 12c0 4.25 2.63 7.89 6.37 9.42-.09-.83-.17-2.1.03-3.01.19-.83 1.22-5.3 1.22-5.3s-.31-.62-.31-1.53c0-1.43.83-2.5 1.85-2.5.88 0 1.3.66 1.3 1.45 0 .88-.56 2.19-.85 3.41-.24.99.52 1.8 1.55 1.8 1.86 0 3.29-1.96 3.29-4.79 0-2.5-1.8-4.25-4.29-4.25-2.92 0-4.63 2.19-4.63 4.47 0 .88.34 1.83.76 2.38.08.1.09.18.07.28l-.31 1.23c-.05.2-.16.24-.36.14-1.34-.62-2.18-2.57-2.18-4.14 0-3.37 2.45-6.46 6.46-6.46 3.39 0 6.02 2.42 6.02 5.65 0 3.37-2.12 6.22-5.21 6.22-1.02 0-1.98-.53-2.3-1.15l-.63 2.38c-.23.87-.86 3.13-1.27 4.19 1.02.3 2.08.46 3.18.46 5.52 0 10-4.48 10-10S17.52 2 12 2z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="Instagram">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="2" y="2" width="20" height="20" rx="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="YouTube">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                        </svg>
+                    </a>
+                    <a href="#" class="footer__social-link" aria-label="TikTok">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .58 0V9.4a6.84 6.84 0 0 0-1 .05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Brand + copyright -->
+                <div class="footer__brand">
+                    <img src="./assets/images/logo-icon.svg" alt="Tripadvisor" class="footer__logo">
+                    <p class="footer__copyright">© 2026 Tripadvisor LLC All rights reserved.</p>
+                </div>
+
+                <!-- Legal links -->
+                <div class="footer__legal">
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Privacy and Cookies Statement</a>
+                    <a href="#">Cookie consent</a>
+                    <a href="#">How the site works</a>
+                    <a href="#">Contact us</a>
+                    <a href="#">Accessibility Statement</a>
+                </div>
+
+                <!-- Disclaimer with expandable Read more -->
+                <div class="footer__disclaimer">
+                    <input type="checkbox" id="footer-readmore" class="footer__readmore-input">
+                    <p class="footer__disclaimer-text">This is the version of our website addressed to speakers of
+                        English in India. If you are a resident of another country or region, please select the
+                        appropriate version of Tripadvisor for your country or region in the drop-down menu.</p>
+                    <div class="footer__disclaimer-more">
+                        <p>Additional disclaimer content can appear here when expanded. This demonstrates the CSS-only
+                            accordion pattern for the "Read more" section.</p>
+                    </div>
+                    <label for="footer-readmore" class="footer__readmore-trigger">
+                        <span class="footer__readmore-text">Read more</span>
+                        <svg class="footer__readmore-icon" width="12" height="12" viewBox="0 0 12 12" fill="none"
+                            stroke="currentColor" stroke-width="2">
+                            <path d="M2 4l4 4 4-4" />
+                        </svg>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+</body>
+
+</html>
