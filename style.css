@@ -1079,6 +1079,7 @@ a {
     /* 5. Explore */
     .explore__foundation-context {
         display: flex;
+        margin-top: 0px;
     }
 
     .explore__foundation {
