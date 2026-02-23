@@ -37,10 +37,8 @@
     <!-- Open Graph (Facebook, LinkedIn) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="TripAdvisor Clone | Travel Reviews & Recommendations">
-    <meta property="og:description"
-        content="Find hotels, things to do, restaurants. Plan your trip with travel reviews from millions.">
-    <meta property="og:image"
-        content="https://static.tacdn.com/img2/brand_refresh_2025/vertical_lockups/vertical_lockup_primary.png">
+    <meta property="og:description" content="Find hotels, things to do, restaurants. Plan your trip with travel reviews from millions.">
+    <meta property="og:image" content="https://static.tacdn.com/img2/brand_refresh_2025/vertical_lockups/vertical_lockup_primary.png">
     <meta property="og:image:width" content="550">
     <meta property="og:image:height" content="370">
     <meta property="og:url" content="https://yourusername.github.io/tripadvisor-clone/">
@@ -49,10 +47,8 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="TripAdvisor Clone | Travel Reviews & Recommendations">
-    <meta name="twitter:description"
-        content="Find hotels, things to do, restaurants. Plan your trip with travel reviews.">
-    <meta name="twitter:image"
-        content="https://static.tacdn.com/img2/brand_refresh_2025/vertical_lockups/vertical_lockup_primary.png">
+    <meta name="twitter:description" content="Find hotels, things to do, restaurants. Plan your trip with travel reviews.">
+    <meta name="twitter:image" content="https://static.tacdn.com/img2/brand_refresh_2025/vertical_lockups/vertical_lockup_primary.png">
 
     <!-- Fonts: Trip Sans loaded via @font-face in style.css -->
     <!-- Optional: Add Google Fonts or other CDN here if needed -->
@@ -64,8 +60,9 @@
 
 <body>
 
-    <header class="header">
-        <section class="container header--sticky">
+    <!-- Nav: flexbox + CSS order for mobile-first layout -->
+    <header class="header header--sticky">
+        <div class="container">
 
             <nav class="nav">
                 <a href="index.html" class="nav__brand">
@@ -123,78 +120,75 @@
 
             </nav>
 
-        </section>
-
-                <!-- Categories: horizontal scroll tabs. Each link targets a form by id (#search-all, #hotels, etc). -->
-        <section class="categories">
-            <h1 class="categories__heading">Where to?</h1>
-
-            <ul class="categories__list">
-                <li class="categories__item">
-                    <a href="#search-all" class="categories__link"><svg viewBox="0 0 24 24" width="24px" height="24px"
-                            class="categories__icon" aria-hidden="true">
-
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M11.889 3.542a.25.25 0 0 0-.278 0l-8 5.333a.25.25 0 0 0-.111.208v10.465c0 .138.112.25.25.25h16a.25.25 0 0 0 .25-.25V9.083a.25.25 0 0 0-.111-.208zm-1.11-1.248a1.75 1.75 0 0 1 1.942 0l8 5.333c.487.325.779.871.779 1.456v10.465a1.75 1.75 0 0 1-1.75 1.75h-16A1.75 1.75 0 0 1 2 19.548V9.083c0-.585.292-1.131.78-1.456z">
-                            </path>
-                        </svg>
-                        <p class="categories__link-text">Search All</p>
-                    </a>
-                </li>
-                <li class="categories__item">
-                    <a href="#hotels" class="categories__link"><svg viewBox="0 0 24 24" width="24px" height="24px"
-                            class="categories__icon" aria-hidden="true">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M22 12.5V20h-4.5v-3h-11v3H2V6.25a2.25 2.25 0 0 1 4.5 0v6.25zM5 6.25a.75.75 0 0 0-1.5 0V18.5H5v-3h14v3h1.5V14H5z">
-                            </path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M12 10.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4">
-                            </path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M11 7h5.6a5.4 5.4 0 0 1 5.4 5.4V14H11zm9.241 4A3.9 3.9 0 0 0 16.6 8.5h-4.1v4h8v-.1a3.9 3.9 0 0 0-.259-1.4">
-                            </path>
-                        </svg>
-                        <p class="categories__link-text">Hotels</p>
-                    </a>
-                </li>
-                <li class="categories__item">
-                    <a href="#things" class="categories__link"><svg viewBox="0 0 24 24" width="24px" height="24px"
-                            class="categories__icon" aria-hidden="true">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M7.56 7.5H3.75a.25.25 0 0 0-.25.25v10c0 .138.112.25.25.25h16.5a.25.25 0 0 0 .25-.25v-10a.25.25 0 0 0-.25-.25h-3.81l-2-2H9.56zM8.94 4h6.12l2 2h3.19c.966 0 1.75.784 1.75 1.75v10a1.75 1.75 0 0 1-1.75 1.75H3.75A1.75 1.75 0 0 1 2 17.75v-10C2 6.784 2.784 6 3.75 6h3.19z">
-                            </path>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M12 9.25a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5M7.75 12a4.25 4.25 0 1 1 8.5 0 4.25 4.25 0 0 1-8.5 0">
-                            </path>
-                        </svg>
-                        <p class="categories__link-text">Things to Do</p>
-                    </a>
-                </li>
-                <li class="categories__item">
-                    <a href="#restaurants" class="categories__link"><svg viewBox="0 0 24 24" width="24px" height="24px"
-                            class="categories__icon" aria-hidden="true">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M14.051 6.549v.003l1.134 1.14 3.241-3.25.003-.002 1.134 1.136-3.243 3.252 1.134 1.14a1 1 0 0 0 .09-.008c.293-.05.573-.324.72-.474l.005-.006 2.596-2.603L22 8.016l-2.597 2.604a3.73 3.73 0 0 1-1.982 1.015 4.3 4.3 0 0 1-3.162-.657l-.023-.016-.026-.018-1.366 1.407 8.509 8.512L20.219 22l-.002-.002-6.654-6.663-2.597 2.76-7.3-7.315C1.967 8.948 1.531 6.274 2.524 4.198c.241-.504.566-.973.978-1.386l8.154 8.416 1.418-1.423-.039-.045c-.858-1.002-1.048-2.368-.62-3.595a4.15 4.15 0 0 1 .983-1.561L16 2l1.135 1.138-2.598 2.602-.047.045c-.16.151-.394.374-.433.678zM3.809 5.523c-.362 1.319-.037 2.905 1.06 4.103L10.93 15.7l1.408-1.496zM2.205 20.697 3.34 21.84l4.543-4.552-1.135-1.143z">
-                            </path>
-                        </svg>
-                        <p class="categories__link-text">Restaurants</p>
-                    </a>
-
-                </li>
-
-            </ul>
-
-        </section>
+        </div>
 
 
     </header>
 
 
-
-
     <main>
-
+        
         <div class="container">
+            <!-- Categories: horizontal scroll tabs. Each link targets a form by id (#search-all, #hotels, etc). -->
+            <section class="categories">
+                <h1 class="categories__heading">Where to?</h1>
+
+                <ul class="categories__list">
+                    <li class="categories__item">
+                        <a href="#search-all" class="categories__link"><svg viewBox="0 0 24 24" width="24px"
+                                height="24px" class="categories__icon" aria-hidden="true">
+
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11.889 3.542a.25.25 0 0 0-.278 0l-8 5.333a.25.25 0 0 0-.111.208v10.465c0 .138.112.25.25.25h16a.25.25 0 0 0 .25-.25V9.083a.25.25 0 0 0-.111-.208zm-1.11-1.248a1.75 1.75 0 0 1 1.942 0l8 5.333c.487.325.779.871.779 1.456v10.465a1.75 1.75 0 0 1-1.75 1.75h-16A1.75 1.75 0 0 1 2 19.548V9.083c0-.585.292-1.131.78-1.456z">
+                                </path>
+                            </svg>
+                            <p class="categories__link-text">Search All</p>
+                        </a>
+                    </li>
+                    <li class="categories__item">
+                        <a href="#hotels" class="categories__link"><svg viewBox="0 0 24 24" width="24px" height="24px"
+                                class="categories__icon" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M22 12.5V20h-4.5v-3h-11v3H2V6.25a2.25 2.25 0 0 1 4.5 0v6.25zM5 6.25a.75.75 0 0 0-1.5 0V18.5H5v-3h14v3h1.5V14H5z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 10.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0m-3.5 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M11 7h5.6a5.4 5.4 0 0 1 5.4 5.4V14H11zm9.241 4A3.9 3.9 0 0 0 16.6 8.5h-4.1v4h8v-.1a3.9 3.9 0 0 0-.259-1.4">
+                                </path>
+                            </svg>
+                            <p class="categories__link-text">Hotels</p>
+                        </a>
+                    </li>
+                    <li class="categories__item">
+                        <a href="#things" class="categories__link"><svg viewBox="0 0 24 24" width="24px" height="24px"
+                                class="categories__icon" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M7.56 7.5H3.75a.25.25 0 0 0-.25.25v10c0 .138.112.25.25.25h16.5a.25.25 0 0 0 .25-.25v-10a.25.25 0 0 0-.25-.25h-3.81l-2-2H9.56zM8.94 4h6.12l2 2h3.19c.966 0 1.75.784 1.75 1.75v10a1.75 1.75 0 0 1-1.75 1.75H3.75A1.75 1.75 0 0 1 2 17.75v-10C2 6.784 2.784 6 3.75 6h3.19z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M12 9.25a2.75 2.75 0 1 0 0 5.5 2.75 2.75 0 0 0 0-5.5M7.75 12a4.25 4.25 0 1 1 8.5 0 4.25 4.25 0 0 1-8.5 0">
+                                </path>
+                            </svg>
+                            <p class="categories__link-text">Things to Do</p>
+                        </a>
+                    </li>
+                    <li class="categories__item">
+                        <a href="#restaurants" class="categories__link"><svg viewBox="0 0 24 24" width="24px"
+                                height="24px" class="categories__icon" aria-hidden="true">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.051 6.549v.003l1.134 1.14 3.241-3.25.003-.002 1.134 1.136-3.243 3.252 1.134 1.14a1 1 0 0 0 .09-.008c.293-.05.573-.324.72-.474l.005-.006 2.596-2.603L22 8.016l-2.597 2.604a3.73 3.73 0 0 1-1.982 1.015 4.3 4.3 0 0 1-3.162-.657l-.023-.016-.026-.018-1.366 1.407 8.509 8.512L20.219 22l-.002-.002-6.654-6.663-2.597 2.76-7.3-7.315C1.967 8.948 1.531 6.274 2.524 4.198c.241-.504.566-.973.978-1.386l8.154 8.416 1.418-1.423-.039-.045c-.858-1.002-1.048-2.368-.62-3.595a4.15 4.15 0 0 1 .983-1.561L16 2l1.135 1.138-2.598 2.602-.047.045c-.16.151-.394.374-.433.678zM3.809 5.523c-.362 1.319-.037 2.905 1.06 4.103L10.93 15.7l1.408-1.496zM2.205 20.697 3.34 21.84l4.543-4.552-1.135-1.143z">
+                                </path>
+                            </svg>
+                            <p class="categories__link-text">Restaurants</p>
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </section>
             <!-- Search: 4 forms stacked, hidden by default. :target selector shows the one linked from categories. -->
             <section class="search">
 
@@ -932,8 +926,7 @@
                     </div>
 
                     <article class="explore__foundation-context">
-                        <img class="explore__foundation-image desktop-height" src="./assets/images/trust-img.jpg"
-                            alt="">
+                        <img class="explore__foundation-image desktop-height" src="./assets/images/trust-img.jpg" alt="">
 
                         <div class="explore__foundation-content">
 
@@ -1487,8 +1480,7 @@
         <section class="explore__advicer explore__advicer--dark">
             <div class="container">
                 <article class="explore__awards">
-                    <img class="explore__awards-logo explore__awards-logo--mobile"
-                        src="./assets/images/foundation-mark.svg" alt="">
+                    <img class="explore__awards-logo explore__awards-logo--mobile" src="./assets/images/foundation-mark.svg" alt="">
 
                     <div class="explore__awards-content">
                         <img class="explore__awards-logo" src="./assets/images/foundation-mark.svg" alt="">

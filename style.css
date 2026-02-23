@@ -138,7 +138,7 @@ a {
 }
 
 .header--sticky {
-    position: fixed;
+    position: sticky;
     top: 0;
     z-index: 10;
     background-color: var(--color-surface);
@@ -234,7 +234,6 @@ a {
 .categories {
     overflow-x: scroll;
     padding: var(--gap-30) 0 var(--gap-20);
-    /* margin-top: 155px; */
 }
 
 .categories__list {
@@ -1005,7 +1004,6 @@ a {
     .categories {
         overflow: auto;
         padding-top: var(--gap-60);
-        margin-top: 60px;
     }
 
     .categories__list {
