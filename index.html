@@ -61,10 +61,10 @@
 <body>
 
     <!-- Nav: flexbox + CSS order for mobile-first layout -->
-    <header class="header header--sticky">
+    <header class="header ">
         <div class="container">
 
-            <nav class="nav">
+            <nav class="nav header--sticky">
                 <a href="index.html" class="nav__brand">
                     <img src="./assets/images/wordmark.svg" alt="TripAdvisor logo">
                 </a>
@@ -120,16 +120,7 @@
 
             </nav>
 
-        </div>
-
-
-    </header>
-
-
-    <main>
-        
-        <div class="container">
-            <!-- Categories: horizontal scroll tabs. Each link targets a form by id (#search-all, #hotels, etc). -->
+                        <!-- Categories: horizontal scroll tabs. Each link targets a form by id (#search-all, #hotels, etc). -->
             <section class="categories">
                 <h1 class="categories__heading">Where to?</h1>
 
@@ -189,6 +180,17 @@
                 </ul>
 
             </section>
+
+        </div>
+
+
+    </header>
+
+
+    <main>
+        
+        <div class="container">
+
             <!-- Search: 4 forms stacked, hidden by default. :target selector shows the one linked from categories. -->
             <section class="search">
 

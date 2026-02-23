@@ -127,6 +127,8 @@ a {
 .container {
     width: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
 /* --------------------------------------------------------------------------
@@ -138,9 +140,11 @@ a {
 }
 
 .header--sticky {
-    position: sticky;
+    width: 100%;
+    max-width: 1140px;
+    position: fixed;
     top: 0;
-    z-index: 10;
+    z-index: 100;
     background-color: var(--color-surface);
 }
 
@@ -150,9 +154,9 @@ a {
     align-items: center;
     height: 60px;
     font: var(--fixed-label-30);
-    margin-top: var(--gap-20);
+    /* padding-top: var(--gap-20); */
     gap: var(--gap-30);
-    padding: 0 var(--gap-20);
+    /* padding: var(--gap-20) var(--gap-20) 0 var(--gap-20); */
 }
 
 .nav__brand {
@@ -187,11 +191,13 @@ a {
     order: 1;
     background-color: transparent;
     border: none;
+    margin-left: 16px;
 }
 
 .nav__actions {
     order: 3;
     display: flex;
+    margin-right: 16px;
 }
 
 .nav__country-btn {
@@ -234,6 +240,7 @@ a {
 .categories {
     overflow-x: scroll;
     padding: var(--gap-30) 0 var(--gap-20);
+    margin-top: 60px;
 }
 
 .categories__list {
