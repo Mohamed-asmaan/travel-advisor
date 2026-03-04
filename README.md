@@ -1,8 +1,6 @@
-# TripAdvisor Clone
+# TravelAdvisor Clone
 
-A responsive static clone of the TripAdvisor landing page built with **HTML** and **CSS** to practice layout, BEM methodology, and mobile-first design. No JavaScript — all interactions use pure CSS (accordions, form targeting, carousel).
-
-![TripAdvisor Clone](https://static.tacdn.com/img2/brand_refresh_2025/vertical_lockups/vertical_lockup_primary.png)
+A responsive static clone of a travel reviews landing page built with **HTML** and **CSS** to practice layout, BEM methodology, and mobile-first design. No JavaScript — all interactions use pure CSS (accordions, form targeting, carousel).
 
 ## Key Highlights
 
@@ -22,12 +20,12 @@ A responsive static clone of the TripAdvisor landing page built with **HTML** an
 
 - HTML5
 - CSS3 (Flexbox, Grid, animations, media queries)
-- Custom font: Trip Sans (woff/woff2)
+- Custom font: Trip Sans (woff/woff2) — generic sans-serif fallback
 
 ## Project Structure
 
 ```
-tripadvisor-clone/
+traveladvisor-clone/
 ├── index.html          # Main markup
 ├── style.css           # All styles (BEM, organized by HTML order)
 ├── README.md
@@ -54,8 +52,8 @@ tripadvisor-clone/
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/tripadvisor-clone.git
-   cd tripadvisor-clone
+   git clone https://github.com/yourusername/traveladvisor-clone.git
+   cd traveladvisor-clone
    ```
 
 2. Open `index.html` in a browser or use a local server:
@@ -74,7 +72,7 @@ tripadvisor-clone/
 
 ## License
 
-This project is for educational purposes. TripAdvisor is a trademark of Tripadvisor LLC.
+This project is for educational purposes.
 
 ---
 

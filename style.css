@@ -1,5 +1,5 @@
 /* ==========================================================================
-   TripAdvisor Clone - BEM Architecture
+   TravelAdvisor Clone - BEM Architecture
    ==========================================================================
    CSS ORDER matches HTML structure for easy maintenance:
    HTML: <header> → <main> [categories, search, book, explore, awards] → <footer>
@@ -634,7 +634,7 @@ a {
     margin-top: var(--gap-05);
 }
 
-/* Explore Foundation blocks (Tripadvisor Foundation, The Wanderer - light gray bg) */
+/* Explore Foundation blocks (TravelAdvisor Foundation, The Wanderer - light gray bg) */
 .explore__advicer {
     background-color: var(--color-surface-container);
     padding: var(--gap-30);
